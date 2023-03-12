@@ -1,0 +1,70 @@
+.toast {
+    box-sizing: border-box;
+    border: solid 1px black;
+    background-color: white;
+    padding: .8rem;
+    border-radius: .5em;
+    font-size: .9em;
+    width: 225px;
+    min-height: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 300ms ease-in-out;
+}
+
+.toast-container[data-position$="-right"] .toast {
+    transform: translateX(110%);
+}
+
+.toast-container[data-position$="-left"] .toast {
+    transform: translateX(-110%);
+}
+
+.toast-container[data-position="top-center"] .toast {
+    transform: translateY(-100vh);
+}
+
+.toast-container[data-position="bottom-center"] .toast {
+    transform: translateY(100vh);
+}
+
+.toast-container .toast.show {
+    transform: translateX(0);
+}
+
+.toast.can-close::after {
+    content: "\00D7";
+    position: absolute;
+    top: 2px;
+    right: 7px;
+}
+
+.toast-container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    margin: 13px;
+    gap: .5rem;
+}
+
+
+.toast-container[data-position$="-right"] {
+    right: 0;
+}
+
+.toast-container[data-position$="-left"] {
+    left: 0;
+}
+
+.toast-container[data-position$="-center"] {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.toast-container[data-position^="top-"] {
+    top: 0;
+}
+
+.toast-container[data-position^="bottom-"] {
+    bottom: 0;
+}
