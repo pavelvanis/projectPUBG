@@ -10,16 +10,27 @@ export default function PlayerLayout() {
 
   const load = useRef(false)
   const toastRef = useRef()
+  const loadedToast = useRef(false)
   const [status, setStatus] = useState(null)
 
-  const addToast = (mode, text) => {
-    toastRef.current.addMessage({ mode: 'error', message: 'text' })
+  const addToast = (toast) => {
+    toastRef.current.addMessage(toast)
   }
 
   const handleStatus = async () => {
     const serverStatus = await getStatusSync();
     console.log(serverStatus);
-    addToast('error', 'Some Toast')
+    if (serverStatus === false && loadedToast.current === false) {
+      addToast({
+        mode: 'error',
+        message: 'PUBG api is not working',
+        canClose: true
+      })
+      loadedToast.current = true
+    }
+    else {
+      loadedToast.current = false
+    }
     setStatus(serverStatus);
   }
 
@@ -40,7 +51,7 @@ export default function PlayerLayout() {
   return (
     <div>
       <PlayerContent status={status} />
-      <ToastPortal ref={toastRef} addToast={addToast} />
+      <ToastPortal ref={toastRef} />
     </div>
   )
 }

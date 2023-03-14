@@ -4,7 +4,7 @@ import { Toast } from './Toast'
 import { v4 as uuid } from "uuid"
 import ReactDOM from 'react-dom'
 import styles from './style.module.css'
-import { forwardRef, useImperativeHandle, useState } from "react"
+import { forwardRef, useEffect, useImperativeHandle, useState } from "react"
 
 export const ToastPortal = forwardRef(
     ({ autoClose, autoCloseTime }, ref) => {
@@ -29,7 +29,7 @@ export const ToastPortal = forwardRef(
                         key={t.id}
                         mode={t.mode}
                         message={t.message}
-                        onClose={() => removeToast(t.id)}
+                        onClose={t.canClose ? () => removeToast(t.id) : null}
                     />
 
                 ))}

@@ -12,6 +12,13 @@
     transition: transform 300ms ease-in-out;
 }
 
+.toast::after {
+    content: "\00D7";
+    position: absolute;
+    top: 2px;
+    right: 7px;
+}
+
 .container {
     position: fixed;
     top: 0;
@@ -31,3 +38,4 @@
     background-color: rgba(0, 128, 0, 0.481);
     border: solid green;
 }
+

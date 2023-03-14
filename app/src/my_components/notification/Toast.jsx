@@ -8,6 +8,8 @@ export const Toast = ({ mode, onClose, message }) => {
     [mode],
   )
 
+  
+
   return (
     <div onClick={onClose} className={classes}>
       {message}
