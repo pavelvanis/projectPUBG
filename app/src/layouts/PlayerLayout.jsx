@@ -49,10 +49,10 @@ export default function PlayerLayout() {
 
 
   return (
-    <div>
+    <main>
       <PlayerContent status={status} />
       <ToastPortal ref={toastRef} />
-    </div>
+    </main>
   )
 }
 
