@@ -1,0 +1,25 @@
+
+body {
+    height: 100vh;
+    font-size: 1.4rem;
+    margin: unset;
+    color: var(--text);
+    background-color: #000;
+    box-sizing: border-box;
+    background-image: url(https://pubgisd-cdn.akamaized.net/live/global-account-management/assets/img/account-login.jpg);
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: cover;
+    background-position-y: 80px;
+    font-family: "Roboto", sans-serif;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+:root{
+    --text: #afb7b9;
+    --dark-background: #161616;
+}
